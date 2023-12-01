@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
 const Todo = () => {
-  const [tasks, taskPendientes] = useState([]);
-  const [newTask, setNuevaTask] = useState("");
+  const [tasks, remainTask] = useState([]);
+  const [newTask, setNewTask] = useState("");
 
   const addTask = (event) => {
     if (event.key === "Enter" && newTask.trim() !== "") {
-      taskPendientes([...tasks, newTask]);
-      setNuevaTask("");
+      remainTask([...tasks, newTask]);
+      setNewTask("");
     }
   };
 
   const deleteTask = (index) => {
     const updatedTasks = [...tasks];
     updatedTasks.splice(index, 1);
-    taskPendientes(updatedTasks);
+    remainTask(updatedTasks);
   };
 
   const howManyTask = (tasks) => {
@@ -31,7 +31,7 @@ const Todo = () => {
           className="form-control w-50 mx-auto text-center"
           type="text"
           value={newTask}
-          onChange={(event) => setNuevaTask(event.target.value)}
+          onChange={(event) => setNewTask(event.target.value)}
           onKeyDown={addTask}
           placeholder="Add a new task"
         />
