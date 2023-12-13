@@ -15,6 +15,7 @@ const Todo = () => {
     const updatedTasks = [...tasks];
     updatedTasks.splice(index, 1);
     remainTask(updatedTasks);
+    // setList(list.filter(item, i) => i != index)
   };
 
   const howManyTask = (tasks) => {
@@ -40,7 +41,10 @@ const Todo = () => {
       <ul className="form-control w-50 mx-auto text-center list-unstyled text-bold">
         {tasks.map((task, index) => (
           <li key={index}>
-            <span className="text-capitalize" onClick={() => deleteTask(index)}>
+            <span
+              className="text-capitalize"
+              onClick={() => deleteTask(index)}
+            >
               {task} 👣
             </span>
           </li>
