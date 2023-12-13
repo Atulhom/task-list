@@ -17,13 +17,16 @@ const Home = () => {
   // .then((response) => response.json()) --> la respuesta dada por url se transforma en JSON
   // .then((data)=> console.log(data)) --> la info transformada en JSON la guarda en data
   // .catch((error) => console.log(error)) --> en caso de error, muestra el error por console.log
+  const [characters, setCharacters] = useState([]);
 
   function getCharacters() {
     fetch("https://rickandmortyapi.com/api/character")
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => setCharacters(data.results))
       .catch((error) => console.log(error));
   }
+
+  console.log(characters);
 
   useEffect(() => {
     getCharacters();
@@ -36,6 +39,11 @@ const Home = () => {
       <button className="" onClick={() => click("")}>
         Subscriberse
       </button>
+      {characters.map((item, index) => (
+        <li className="card mt-1" key={item.id}>
+          {item.name}
+        </li>
+      ))}
     </div>
   );
 };
