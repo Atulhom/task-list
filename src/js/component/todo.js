@@ -38,13 +38,10 @@ const Todo = () => {
         />
       </div>
 
-      <ul className="form-control w-50 mx-auto text-center list-unstyled text-bold">
+      <ul className="form-control w-50 mx-auto text-center list-unstyled text-bold mt-3">
         {tasks.map((task, index) => (
           <li key={index}>
-            <span
-              className="text-capitalize"
-              onClick={() => deleteTask(index)}
-            >
+            <span className="text-capitalize" onClick={() => deleteTask(index)}>
               {task} 👣
             </span>
           </li>
